@@ -1,0 +1,32 @@
+extends layout
+
+block contenido
+  .row
+    .col-xs-3
+      img.img-rounded.img-responsive(src=`${usuario.avatar(500)}`)
+      h4 #{usuario.nombre}
+      p #{usuario.biografia}
+      
+    .col-xs-9
+      .row.panel.panel-default
+        .panel-body
+          .col-xs-2.text-center
+            | Tweets
+            br
+            strong #{tweets.length}
+          .col-xs-2.text-center
+            | Seguidores
+            br
+            strong #{usuario.seguidores.length}
+          .col-xs-2.text-center
+            | Siguiendo
+            br
+            strong #{usuario.siguiendo.length}
+          if !esconderBotones
+            if !estaSiendoSeguido
+              a.btn.btn-info.pull-right(href=`/seguir/${usuario._id}`) Seguir
+            else 
+              a.btn.btn-danger.pull-right(href=`/unseguir/${usuario._id}`) Dejar de seguir
+
+      .row
+        include componentes/tweetsFeed

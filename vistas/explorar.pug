@@ -1,0 +1,21 @@
+extends layout
+
+block contenido
+  .row
+    .col-sm-8.col-sm-offset-2
+      br
+      form(role='form', method='post')
+        input.form-control(name='query', type='search', value='', placeholder='Busca a gente que seguir!')
+
+      table.table.explorar
+        tbody
+          each usuario in usuarios
+            tr
+              td
+                .media
+                  a.pull-left(href=`/perfil/${usuario._id}`)
+                    img.foto-perfil(src=`${usuario.avatar(55)}`) 
+                  .media-body
+                    a(href=`/perfil/${usuario._id}`)
+                      h4.title #{usuario.nombre}
+                    p.summary #{usuario.biografia}

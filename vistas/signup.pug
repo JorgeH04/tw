@@ -1,0 +1,20 @@
+extends layout
+
+block contenido
+  .row
+    .col-md-6.col-md-offset-3
+      form(role='form', method='post')
+        fieldset
+          h2 Signup
+          .form-group
+            input.form-control.input-lg(type='text', name='nombre', placeholder='Nombre')
+          .form-group
+            input.form-control.input-lg(type='email', name='email', placeholder='Email')
+          .form-group
+            input.form-control.input-lg(type='password', name='password', placeholder='Password')
+          .form-group
+            input.form-control.input-lg(type='text', name='biografia', placeholder='Cuentanos un poco de ti!')
+
+          .row
+            .col-md-4.col-md-offset-4
+              input.btn.btn-lg.btn-success.btn-block(type='submit', value='Login')
